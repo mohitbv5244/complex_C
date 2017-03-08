@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{ 
+    int a,b,c,d;
+    printf("enter the total number\n");
+    scanf("%d",&a);
+    printf("enter the number of bundles\n");
+    scanf("%d",&b);
+    c = a%b;
+    d = a/b;
+    printf("number of induviduals remaining %d\n", c);
+    printf("total number of bundles %d\n", d);
+    return 0;
+}
+

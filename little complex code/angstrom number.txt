@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("enter the number\n");
+    int a, b, temp, i, n, count = 0;
+    scanf("%d", &a);
+    temp = a;
+    while(temp != 0)
+    {
+        count++;
+        temp = temp/10;
+        
+    }
+    temp = a;
+    printf("the count is %d\n", count);
+for(i = 0; temp > 0; i++)
+    {
+        int n = temp % 10;
+        b = b + angst(n, count);
+        temp = temp /10;
+    }
+    
+    printf("angst of %d is %d\n", a, b);
+    if(b == a)
+    {
+        printf("yes, %d is anstrom number\n", b);
+    }
+    else
+    {
+        printf("no, %d is not angstrom number\n", b);
+    }
+
+return 0;
+}
+
+int angst(int n, int count)
+{
+    int p = 1, i;
+    for(i = 1; i <= count; i++)
+    {
+        p = p * n;
+        
+    }
+
+    return p;
+}

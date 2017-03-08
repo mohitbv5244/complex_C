@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[100],  n, i, u;
+    printf("enter the number of numbers\n");
+    scanf("%d", &n);
+    printf("enter the elements\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    
+    printf("the elements entered are\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    
+    
+    printf("enter the number to be searched\n");
+    scanf("%d",&u);
+    
+    
+    for(i = 0;  i< n; i++)
+    {
+        if(a[i] == u)
+        {
+        printf("number is in array in %d position\n", i);
+        break;
+        }
+    }
+    if(i == n)
+    {
+        printf("number is not in array\n");
+    }
+    return 0;
+}
+

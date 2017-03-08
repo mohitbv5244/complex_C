@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main()
+{
+    int tw, te, fe, on, total;
+    scanf("%d", &total);
+    
+     tw = (total / 25);
+    //if( total >= 10 )
+        te = (total - (tw * 25)) / 10;
+    //if( total >= 5 )
+        fe = (total - (tw * 25) - (te * 10)) / 5;
+    //if( total >= 0 )
+        on = (total - (tw * 25) - (te * 10) - (fe * 5)) / 1;
+        
+        int i, j , k , l, count;
+        for(i = 0; i < on; i++)
+        {
+            for(j = 0; j < fe; j++)
+            {
+                for(k = 0; k < te; k++)
+                {
+                    for(l = 0; l < tw; l++)
+                    {
+                        count = count+1;
+                    }
+                }
+            }
+        }
+        printf("\nTOTAL VALUE ENTERED: %d", total);
+    printf("\n%d quarters\n", tw);
+    printf("\n%d dimes\n", te);
+    printf("\n%d nickels\n", fe);
+    printf("\n%d pennies\n", on);
+    printf("\n%d count\n", count);
+
+    return 0;
+}
+
