@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main()
+{
+  int n, i, hole, value,a[10];
+  printf("enter the number of elements\n");
+  scanf("%d",&n);
+  printf("enter the elemets\n");
+  for(i = 0; i < n; i++)
+  {
+      scanf("%d", &a[i]);
+  }
+  printf("the entered array is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", a[i]);
+  }
+  printf("\n");
+  
+ 
+  for(i = 1; i < n; i++)
+  {
+      value = a[i];
+      hole = i;
+      while( hole > 0 && a[hole-1] > value)
+      {
+          a[hole] = a[hole -1];
+          hole--;
+      }
+      a[hole] = value;
+  }
+  
+  printf("the entered array after sorting is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", a[i]);
+  }
+  printf("\n");
+  
+  
+}
+
