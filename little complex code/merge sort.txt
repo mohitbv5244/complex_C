@@ -1,0 +1,89 @@
+
+
+
+
+#include <stdio.h>
+
+void merge(int *A, int *L, int nL, int *R, int nR)
+{
+    int i = 0, j = 0, k = 0;
+    while(i < nL && j < nR)
+    {
+        if( L[i] < R[j])
+        {
+        A[k] = L[i];
+        k++;
+        i++;
+        }
+        else
+        {
+        A[k] = R[j];
+        k++;
+        j++;
+        }
+    }
+    while( i < nL)
+    {
+        A[k] = L[i];
+        k++;
+        i++;
+    }
+    while( j < nR)
+    {
+        A[k] = R[j];
+        k++;
+        j++;
+    }
+}
+
+void mergesort(int *A, int n)
+{
+  int i = 0, mid = 0, *L, *R;
+  if(n < 2)// condition for the function to exit when the elements in the array are less than 2
+    return;
+  
+  mid = n/2;
+  L = (int*)malloc(mid*sizeof(int));
+  R = (int*)malloc((n-mid)*sizeof(int));
+    
+  for(i = 0; i < mid; i++)
+  {
+      L[i] = A[i];// creates left array
+  }
+  for(i = mid; i < n; i++)
+  {
+      R[i-mid] = A[i];// creates right array
+  }
+  mergesort(L,mid);// recursive function
+  mergesort(R,n-mid);// recursive function
+  merge(A,L,mid,R,n-mid);// merge the arrays after sorting
+  free(L);
+  free(R);
+  
+}
+
+
+int main()
+{
+    int  n, i, A[10]= {1,5,-8,9,-7,6,7,4,2,-10};
+    n= sizeof(A)/sizeof(A[0]);
+  printf("the entered array is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", A[i]);
+  }
+  printf("\n");
+  
+  mergesort(A,n);
+  
+  
+  printf("the entered array after sorting is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", A[i]);
+  }
+  printf("\n");
+  
+  
+}
+

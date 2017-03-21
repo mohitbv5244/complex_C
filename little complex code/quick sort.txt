@@ -1,0 +1,64 @@
+//gcc 5.4.0
+
+
+
+#include <stdio.h>
+
+int partition(int *A, int start, int end)
+{
+ int i, pivot = A[end], temp;
+    int pindex = start;// be default the first index is the start index
+    for(i = start; i < end; i++)
+    {
+        if(A[i] <= pivot)// compare the element with the last element 
+        {
+            temp = A[i];// swap them if it is lesser than pivot value
+            A[i] = A[pindex];
+            A[pindex] = temp;
+            pindex++;
+        }
+        
+    }
+    temp = A[end];
+    A[end] = A[pindex];
+    A[pindex] = temp;
+    return pindex;
+}
+
+void quicksort(int *A, int start, int end)
+{
+    int pindex;
+    if(start < end)
+    {
+    pindex = partition(A, start, end);// partitions the  array
+    quicksort(A,start,pindex-1);// recursive call for the left part of the array
+    quicksort(A,pindex+1, end);// recursive call for the right part od the array
+    }
+}    
+  
+
+
+int main()
+{
+    int  n, i, A[10]= {1,5,-8,9,-7,6,7,4,2,-10};
+    n= sizeof(A)/sizeof(A[0]);
+  printf("the entered array is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", A[i]);
+  }
+  printf("\n");
+  
+  quicksort(A,0,n-1);
+  
+  
+  printf("the entered array after sorting is\n");
+  for(i = 0; i < n; i++)
+  {
+      printf("%d\t", A[i]);
+  }
+  printf("\n");
+  
+  
+}
+
